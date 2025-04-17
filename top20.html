@@ -246,19 +246,38 @@
             
             const refPath = `${year}/${month}/${roomSize}`;
             const scoresRef = ref(database, refPath);
-            console.log(scoresRef);
+            
             onValue(scoresRef, (snapshot) => {
-                    const data = snapshot.val();
-                    console.log(data);
-                    loadingElement.style.display = 'none';
-                    
-                    if (data && data.length > 0) {
-                        displayScores(data);
-                        scoreTable.style.display = 'table';
-                    } else {
-                        loadingElement.textContent = '해당 방 크기의 데이터가 없습니다.';
-                    }
-                });
+                const data = snapshot.val();
+                loadingElement.style.display = 'none';
+                
+                if (!data) {
+                    loadingElement.textContent = '해당 방 크기의 데이터가 없습니다.';
+                    return;
+                }
+        
+                // 데이터가 객체 형태인 경우 배열로 변환
+                let scoresArray;
+                if (Array.isArray(data)) {
+                    scoresArray = data;
+                } else {
+                    // 객체인 경우 값들만 배열로 추출
+                    scoresArray = Object.values(data);
+                }
+        
+                // 점수 기준으로 내림차순 정렬
+                scoresArray.sort((a, b) => b.점수 - a.점수);
+        
+                if (scoresArray.length > 0) {
+                    displayScores(scoresArray);
+                    scoreTable.style.display = 'table';
+                } else {
+                    loadingElement.textContent = '해당 방 크기의 데이터가 없습니다.';
+                }
+            }, (error) => {
+                loadingElement.textContent = '데이터를 불러오는 중 오류가 발생했습니다.';
+                console.error('Error loading data:', error);
+            });
         }
         
         // 점수 표시 함수
