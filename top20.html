@@ -257,10 +257,6 @@
                     } else {
                         loadingElement.textContent = '해당 방 크기의 데이터가 없습니다.';
                     }
-                })
-                .catch(error => {
-                    console.error('데이터 불러오기 실패:', error);
-                    loadingElement.textContent = '데이터 불러오기에 실패했습니다.';
                 });
         }
         
