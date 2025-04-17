@@ -263,10 +263,7 @@
                 } else {
                     // 객체인 경우 값들만 배열로 추출
                     scoresArray = Object.values(data);
-                }
-        
-                // 점수 기준으로 내림차순 정렬
-                scoresArray.sort((a, b) => b.점수 - a.점수);
+                }               
         
                 if (scoresArray.length > 0) {
                     displayScores(scoresArray);
