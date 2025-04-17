@@ -245,10 +245,9 @@
             scoreTableBody.innerHTML = '';
             
             const refPath = `${year}/${month}/${roomSize}`;
-            const scoresRef = database.ref(refPath);
+            const scoresRef = ref(database, refPath);
             
-            scoresRef.once('value')
-                .then(snapshot => {
+            onValue(scoresRef, (snapshot) => {
                     const data = snapshot.val();
                     loadingElement.style.display = 'none';
                     
