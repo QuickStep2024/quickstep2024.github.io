@@ -246,7 +246,7 @@
             
             const refPath = `${year}/${month}/${roomSize}`;
             const scoresRef = ref(database, refPath);
-            
+            console.log(scoresRef);
             onValue(scoresRef, (snapshot) => {
                     const data = snapshot.val();
                     console.log(data);
