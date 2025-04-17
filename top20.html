@@ -140,16 +140,7 @@
 </head>
 <body>
     <div class="scoreboard-container">
-        <h1>이달의 Top20</h1>
-        
-        <div class="month-selector">
-            <select id="monthSelect">
-                <option value="01">1월</option>
-                <option value="02">2월</option>
-                <option value="03">3월</option>
-                <option value="04" selected>4월</option>
-            </select>
-        </div>
+        <h1>이달의 Top20</h1>        
         
         <div class="room-tabs">
             <button class="room-tab active" data-room="S">작은방</button>
@@ -215,7 +206,8 @@
         
         // 초기에는 테이블 숨김
         scoreTable.style.display = 'none';
-        
+
+        /*
         // 기본값 설정 (현재 월)
         monthSelect.value = currentMonth;
         
@@ -223,7 +215,7 @@
         monthSelect.addEventListener('change', function() {
             currentMonth = this.value;
             loadData(currentYear, currentMonth, 'S'); // 기본으로 작은방 데이터 로드
-        });
+        });*/
         
         // 방 탭 클릭 이벤트 리스너
         roomTabs.forEach(tab => {
