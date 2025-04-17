@@ -1,219 +1,254 @@
 ---
-title: "Mundana Free Jekyll Theme"
+title: "퀵스텝 - 게임의 즐거움을 위한 공간"
 layout: default
 pagination:
     enabled: true
-description: "A great Jekyll theme developed by Sal @wowthemesnet."
+description: "퀵스텝 공식 사이트: 게임 정보, 가맹점 안내, 랭킹 시스템"
 ---
-
-
 <div class="container">
     
-{% if page.url == "/" %}
-    
-    
-    
-<!-- Begin post excerpts, let's highlight the first 4 posts on top -->
-<div class="row remove-site-content-margin">
-    
-    <!-- latest post -->
-    {% assign latest_post = site.posts[0] %}
-    <div class="col-md-6">
-    <div class="card border-0 mb-4 box-shadow">   
-    <a href="{{site.baseurl}}{{latest_post.url}}">
-    <div class="topfirstimage" style="background-image: url({% if latest_post.image contains "://" %}{{ latest_post.image }}{% else %} {{site.baseurl}}/{{ latest_post.image}}{% endif %}); height: 200px;    background-size: cover;    background-repeat: no-repeat;"></div>     
-    </a>
-    <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-    <h2 class="h4 font-weight-bold">
-    <a class="text-dark" href="{{site.baseurl}}{{latest_post.url}}">{{ latest_post.title }}</a>
-    </h2>
-    <p class="excerpt">
-        {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }}
-    </p>
-    <div>
-        <small class="d-block text-muted">
-            In <span class="catlist">
-                {% for category in latest_post.categories %}
-                <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                {% endfor %}
-                </span>                   
-        </small>
-        <small class="text-muted">
-            {{ latest_post.date | date: '%b %d, %Y' }}
-        </small>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    <div class="col-md-6">
-        
-        <!-- second latest post -->
-        {%- assign second_post = site.posts[1] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if second_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{second_post.url}}">
-                 <img class="w-100" src="{% if second_post.image contains "://" %}{{ second_post.image }}{% else %}{{ second_post.image | absolute_url }}{% endif %}" alt="{{ second_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{second_post.url}}">{{ second_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in second_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ second_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-        <!-- third latest post -->
-        {%- assign third_post = site.posts[2] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if third_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{third_post.url}}">
-                 <img class="w-100" src="{% if third_post.image contains "://" %}{{ third_post.image }}{% else %}{{site.baseurl}}/{{ third_post.image }}{% endif %}" alt="{{ third_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{third_post.url}}">{{ third_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in third_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ third_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-        <!-- fourth latest post -->
-        {%- assign fourth_post = site.posts[3] -%}        
-        <div class="mb-3 d-flex align-items-center">                
-                {% if fourth_post.image %}
-                <div class="col-md-4">
-                <a href="{{site.baseurl}}{{fourth_post.url}}">
-                <img class="w-100" src="{% if fourth_post.image contains "://" %}{{ fourth_post.image }}{% else %}{{site.baseurl}}/{{ fourth_post.image }}{% endif %}" alt="{{ fourth_post.title }}">
-                </a>
-                </div>
-                {% endif %}                
-                <div>
-                    <h2 class="mb-2 h6 font-weight-bold">
-                    <a class="text-dark" href="{{site.baseurl}}{{fourth_post.url}}">{{ fourth_post.title }}</a>
-                    </h2>
-                    <small class="d-block text-muted">
-                        In <span class="catlist">
-                        {% for category in fourth_post.categories %}
-                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                        {% endfor %}
-                        </span>                   
-                    </small>
-                    <small class="text-muted">
-                        {{ fourth_post.date | date: '%b %d, %Y' }}
-                    </small>
-                </div>
-            </div>
-        
-    </div>
-    
-</div>
-    
-<!-- Sticky - add sticky tag to the post you want to highlight here - tags: [sticky] -->
-{% for post in site.posts %} 
-{% if post.tags contains "sticky" %}
-<div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem bg-lightblue position-relative">
-    <div class="pl-4 pr-0 h-100 tofront">
-        <div class="row justify-content-between">
-            <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
-                <h1 class="mb-3">{{post.title}}</h1>
-                <p class="mb-3 lead">
-                    {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
-                </p>
-                <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
-            </div>
-            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">	
+    <!-- 퀵스텝 소개 배너 섹션 -->
+    <section class="jumbotron jumbotron-fluid bg-primary text-white mb-4">
+        <div class="container text-center py-5">
+            <h1 class="display-4">퀵스텝에 오신 것을 환영합니다!</h1>
+            <p class="lead">재미와 스릴이 가득한 게임 세계로 여러분을 초대합니다.</p>
+            <div class="mt-4">
+                <a href="#about" class="btn btn-light btn-lg mr-2">게임 소개</a>
+                <a href="#franchise" class="btn btn-outline-light btn-lg">가맹 문의</a>
             </div>
         </div>
-    </div>
-</div> 
-{% endif %}
-{% endfor %}
+    </section>
 
+    <!-- 퀵스텝 주요 기능 섹션 -->
+    <section id="about" class="row mb-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">게임 소개</h3>
+                    <p class="card-text">퀵스텝의 다양한 게임들을 소개합니다. 재미와 스릴이 가득한 게임들을 만나보세요.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">게임 방법</h3>
+                    <p class="card-text">퀵스텝 게임의 기본 규칙과 플레이 방법을 안내합니다. 쉽고 재미있게 즐기세요.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">지점 위치</h3>
+                    <p class="card-text">전국에 위치한 퀵스텝 지점을 찾아보세요. 가까운 지점에서 게임을 즐겨보세요.</p>
+                    <a href="#" class="btn btn-primary">지점 찾기</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    
+    <!-- 가맹 문의 섹션 -->
+    <section id="franchise" class="row mb-5 bg-light p-4 rounded">
+        <div class="col-12 mb-4">
+            <h2 class="text-center">가맹 문의</h2>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">가맹비용 안내</h3>
+                    <p class="card-text">퀵스텝 가맹점 개설을 위한 비용과 조건을 상세히 안내해 드립니다.</p>
+                    <a href="#" class="btn btn-primary">비용 확인</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">자동 견적</h3>
+                    <p class="card-text">간단한 정보 입력으로 예상 가맹 비용을 계산해 보세요.</p>
+                    <a href="#" class="btn btn-primary">견적 받기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">가맹 요청</h3>
+                    <p class="card-text">퀵스텝 가맹점 개설을 원하시면 문의해 주세요. 전문 상담원이 안내해 드립니다.</p>
+                    <a href="#" class="btn btn-primary">문의하기</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 랭킹 시스템 섹션 -->
+    <section id="scoreboard" class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2 class="text-center">온라인 점수판</h2>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Top 20</h3>
+                    <p class="card-text">퀵스텝 최고의 플레이어들을 만나보세요. 주간 TOP 20 순위를 확인할 수 있습니다.</p>
+                    <a href="#" class="btn btn-primary">순위 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">명예의 전당</h3>
+                    <p class="card-text">퀵스텝의 역대 최고 기록 보유자들을 소개합니다. 전설적인 플레이어들을 만나보세요.</p>
+                    <a href="#" class="btn btn-primary">명예의 전당</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-{% endif %} <!--endif page url is / -->
-    
-
-
-<!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
-    
-<div class="row mt-3">
-   
-    <div class="col-md-8 main-loop">
-        
-        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
-        
-
-        {% for post in paginator.posts %}
-        
-            {% include main-loop-card.html %}
-        
-        {% endfor %}
-        
-        <div class="mt-5">
-         <!-- Pagination links -->
+    <!-- 블로그 포스트 섹션 (Mundana 테마 구조 통합) -->
+    <section class="row mt-3">
+        <div class="col-md-8">
+            <h4 class="font-weight-bold spanborder"><span>최신 소식</span></h4>
+            
+            {% if page.url == "/" %}
+                <!-- 첫 4개 포스트 하이라이트 -->
+                <div class="row mb-4">
+                    <!-- 최신 포스트 -->
+                    {% assign latest_post = site.posts[0] %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-0 h-100">
+                            <a href="{{site.baseurl}}{{latest_post.url}}">
+                                <div class="topfirstimage" style="background-image: url({% if latest_post.image contains '://' %}{{ latest_post.image }}{% else %}{{site.baseurl}}/{{ latest_post.image}}{% endif %}); height: 200px; background-size: cover; background-repeat: no-repeat;"></div>
+                            </a>
+                            <div class="card-body">
+                                <h2 class="h4 font-weight-bold">
+                                    <a class="text-dark" href="{{site.baseurl}}{{latest_post.url}}">{{ latest_post.title }}</a>
+                                </h2>
+                                <p class="excerpt">{{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }}</p>
+                                <small class="text-muted">{{ latest_post.date | date: '%Y.%m.%d' }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <!-- 두번째 포스트 -->
+                        {%- assign second_post = site.posts[1] -%}
+                        <div class="mb-3">
+                            <h2 class="h5 font-weight-bold">
+                                <a class="text-dark" href="{{site.baseurl}}{{second_post.url}}">{{ second_post.title }}</a>
+                            </h2>
+                            <small class="text-muted">{{ second_post.date | date: '%Y.%m.%d' }}</small>
+                        </div>
+                        
+                        <!-- 세번째 포스트 -->
+                        {%- assign third_post = site.posts[2] -%}
+                        <div class="mb-3">
+                            <h2 class="h5 font-weight-bold">
+                                <a class="text-dark" href="{{site.baseurl}}{{third_post.url}}">{{ third_post.title }}</a>
+                            </h2>
+                            <small class="text-muted">{{ third_post.date | date: '%Y.%m.%d' }}</small>
+                        </div>
+                        
+                        <!-- 네번째 포스트 -->
+                        {%- assign fourth_post = site.posts[3] -%}
+                        <div class="mb-3">
+                            <h2 class="h5 font-weight-bold">
+                                <a class="text-dark" href="{{site.baseurl}}{{fourth_post.url}}">{{ fourth_post.title }}</a>
+                            </h2>
+                            <small class="text-muted">{{ fourth_post.date | date: '%Y.%m.%d' }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <!-- 나머지 포스트 목록 -->
+            {% for post in paginator.posts offset:4 %}
+                {% include main-loop-card.html %}
+            {% endfor %}
+            
+            <!-- 페이지네이션 -->
             {% if paginator.total_pages > 1 %}
-            <ul class="pagination"> 
-              {% if paginator.previous_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
-              {% endif %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center mt-4">
+                    {% if paginator.previous_page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">&laquo;</span>
+                        </li>
+                    {% endif %}
 
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
-                {% elsif page == 1 %}
-                <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
-                {% else %}
-                <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-                {% endif %}
-              {% endfor %}
+                    {% for page in (1..paginator.total_pages) %}
+                        {% if page == paginator.page %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ page }}</span>
+                            </li>
+                        {% elsif page == 1 %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{site.baseurl}}/">{{ page }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
 
-              {% if paginator.next_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
-              {% endif %}
-            </ul>
-            {% endif %}      
+                    {% if paginator.next_page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">&raquo;</span>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
         </div>
         
-    </div>
-    
-    <div class="col-md-4">
-        {% include sidebar-featured.html %}    
-    </div>
-    
-</div>
-
-
-
+        <!-- 사이드바 -->
+        <div class="col-md-4">
+            {% include sidebar-featured.html %}
+            
+            <!-- 추가 퀵스텝 위젯 -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">오늘의 랭킹</h4>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Player1</div>
+                                1,250점
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Player2</div>
+                                1,180점
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Player3</div>
+                                1,150점
+                            </div>
+                        </li>
+                    </ol>
+                    <a href="#scoreboard" class="btn btn-outline-primary btn-sm mt-2">전체 랭킹 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
