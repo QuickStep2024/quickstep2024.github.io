@@ -182,7 +182,7 @@
 
     <script type="module">     
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+        import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
         // Firebase 구성
         const firebaseConfig = {
           apiKey: "AIzaSyCkTqcLtAaaIvMQ3co23lVfjx03X0WJDvw",
@@ -243,7 +243,7 @@
             scoreTableBody.innerHTML = '';
             
             const refPath = `${year}/${month}/${roomSize}`;
-            const scoresRef = database.ref(refPath);
+            const scoresRef = ref(refPath);
             
             scoresRef.once('value')
                 .then(snapshot => {
