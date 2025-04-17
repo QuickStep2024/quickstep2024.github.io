@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀵스텝 - 즐거운 게임 경험을 위한 최고의 선택</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .main-banner {
+            background-color: #3498db;
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">퀵스텝</div>
+        <p>즐거운 게임 경험을 위한 최고의 선택</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">퀵스텝 소개</a></li>
+            <li><a href="#franchise">가맹문의</a></li>
+            <li><a href="#scoreboard">온라인점수판</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="main-banner">
+            <h1>퀵스텝에 오신 것을 환영합니다!</h1>
+            <p>재미와 스릴이 가득한 게임 세계로 여러분을 초대합니다.</p>
+            <a href="#about" class="btn">더 알아보기</a>
+        </section>
+        
+        <section id="about" class="section">
+            <h2>퀵스텝 소개</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>게임 소개</h3>
+                    <p>퀵스텝의 다양한 게임들을 소개합니다. 재미와 스릴이 가득한 게임들을 만나보세요.</p>
+                    <a href="#" class="btn">자세히 보기</a>
+                </div>
+                <div class="card">
+                    <h3>게임 방법</h3>
+                    <p>퀵스텝 게임의 기본 규칙과 플레이 방법을 안내합니다. 쉽고 재미있게 즐기세요.</p>
+                    <a href="#" class="btn">자세히 보기</a>
+                </div>
+                <div class="card">
+                    <h3>지점 위치</h3>
+                    <p>전국에 위치한 퀵스텝 지점을 찾아보세요. 가까운 지점에서 게임을 즐겨보세요.</p>
+                    <a href="#" class="btn">지점 찾기</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="franchise" class="section">
+            <h2>가맹문의</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>가맹비용 안내</h3>
+                    <p>퀵스텝 가맹점 개설을 위한 비용과 조건을 상세히 안내해 드립니다.</p>
+                    <a href="#" class="btn">비용 확인</a>
+                </div>
+                <div class="card">
+                    <h3>자동 견적</h3>
+                    <p>간단한 정보 입력으로 예상 가맹 비용을 계산해 보세요.</p>
+                    <a href="#" class="btn">견적 받기</a>
+                </div>
+                <div class="card">
+                    <h3>가맹 요청</h3>
+                    <p>퀵스텝 가맹점 개설을 원하시면 문의해 주세요. 전문 상담원이 안내해 드립니다.</p>
+                    <a href="#" class="btn">문의하기</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="scoreboard" class="section">
+            <h2>온라인점수판</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Top 20</h3>
+                    <p>퀵스텝 최고의 플레이어들을 만나보세요. 주간 TOP 20 순위를 확인할 수 있습니다.</p>
+                    <a href="#" class="btn">순위 보기</a>
+                </div>
+                <div class="card">
+                    <h3>명예의 전당</h3>
+                    <p>퀵스텝의 역대 최고 기록 보유자들을 소개합니다. 전설적인 플레이어들을 만나보세요.</p>
+                    <a href="#" class="btn">명예의 전당</a>
+                </div>
+                <div class="card">
+                    <h3>내 기록 확인</h3>
+                    <p>나의 게임 기록과 순위를 확인해 보세요. 더 높은 순위에 도전하세요!</p>
+                    <a href="#" class="btn">기록 확인</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 퀵스텝. 모든 권리 보유.</p>
+        <p>고객센터: 1588-XXXX | 이메일: info@quickstep.com</p>
+    </footer>
+</body>
+</html>
