@@ -199,12 +199,13 @@
         let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
         
         // DOM 요소
-        const monthSelect = document.getElementById('monthSelect');
+        // const monthSelect = document.getElementById('monthSelect'); // 주석 처리된 monthSelect는 사용되지 않으므로 제거
         const roomTabs = document.querySelectorAll('.room-tab');
         const scoreTableBody = document.getElementById('scoreTableBody');
         const loadingElement = document.getElementById('loading');
         const scoreTable = document.getElementById('scoreTable');
-        
+        const scoreboardContainer = document.querySelector('.scoreboard-container'); // 스와이프를 위한 컨테이너 요소
+
         // 초기에는 테이블 숨김
         scoreTable.style.display = 'none';
 
@@ -229,6 +230,42 @@
                 const roomSize = this.getAttribute('data-room');
                 loadData(currentYear, currentMonth, roomSize);
             });
+        });
+
+        // Swipe functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // 스와이프로 인식할 최소 픽셀 (조절 가능)
+
+        scoreboardContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        scoreboardContainer.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        scoreboardContainer.addEventListener('touchend', () => {
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                const currentActiveTab = document.querySelector('.room-tab.active');
+                const roomTabsArray = Array.from(roomTabs); // NodeList를 배열로 변환하여 인덱스 접근 용이하게 함
+                const currentIndex = roomTabsArray.indexOf(currentActiveTab);
+
+                if (diff > 0) { // 왼쪽으로 스와이프 (다음 탭으로 이동)
+                    if (currentIndex < roomTabsArray.length - 1) {
+                        roomTabsArray[currentIndex + 1].click();
+                    }
+                } else { // 오른쪽으로 스와이프 (이전 탭으로 이동)
+                    if (currentIndex > 0) {
+                        roomTabsArray[currentIndex - 1].click();
+                    }
+                }
+            }
+            // 터치 위치 초기화
+            touchStartX = 0;
+            touchEndX = 0;
         });
         
         // 데이터 로드 함수
